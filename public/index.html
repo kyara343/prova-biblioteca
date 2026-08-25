@@ -1,26 +1,60 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Biblioteca Digital</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <main class="container">
-      <h1>Biblioteca Digital</h1>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Biblioteca Digital</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="container">
+    <h1>Biblioteca Digital</h1>
+    <p>Cadastre, empreste, devolva e remova livros da biblioteca.</p>
+
+    <section class="cadastro">
+      <h2>Cadastrar Livro</h2>
 
       <form id="form-livro">
-        <input id="input-titulo" name="titulo" placeholder="Título" />
-        <input id="input-autor" name="autor" placeholder="Autor" />
-        <input id="input-ano" name="ano" type="number" placeholder="Ano" />
-        <button type="submit">Cadastrar livro</button>
+        <label for="input-titulo">Título</label>
+        <input
+          id="input-titulo"
+          name="titulo"
+          type="text"
+          placeholder="Digite o título"
+          required
+        >
+
+        <label for="input-autor">Autor</label>
+        <input
+          id="input-autor"
+          name="autor"
+          type="text"
+          placeholder="Digite o autor"
+          required
+        >
+
+        <label for="input-ano">Ano</label>
+        <input
+          id="input-ano"
+          name="ano"
+          type="number"
+          placeholder="Digite o ano"
+          min="0"
+          required
+        >
+
+        <button type="submit">Cadastrar Livro</button>
       </form>
+    </section>
 
-      <p id="mensagem-erro" class="oculto"></p>
+    <p id="mensagem-erro" class="oculto"></p>
+
+    <section class="livros">
+      <h2>Lista de Livros</h2>
       <ul id="lista-livros"></ul>
-    </main>
+    </section>
+  </main>
 
-    <script src="app.js"></script>
-  </body>
+  <script src="app.js"></script>
+</body>
 </html>

@@ -4,24 +4,28 @@
 
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background: #f4f6f8;
-  color: #1f2933;
+  font-family: Georgia, "Times New Roman", serif;
+  background: #d9c7a3;
+  color: #3e2c1c;
 }
 
 .container {
   max-width: 900px;
   margin: 40px auto;
   padding: 24px;
-  background: #ffffff;
-  border-radius: 14px;
-  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+  background: #f4ecd8;
+  border: 3px solid #8b6b3f;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
 }
 
 h1 {
   margin-top: 0;
   margin-bottom: 24px;
   text-align: center;
+  color: #5a3e1b;
+  border-bottom: 2px solid #8b6b3f;
+  padding-bottom: 10px;
 }
 
 #form-livro {
@@ -33,31 +37,33 @@ h1 {
 
 input {
   padding: 12px 14px;
-  border: 1px solid #cbd5e1;
-  border-radius: 8px;
+  border: 2px solid #8b6b3f;
+  border-radius: 6px;
+  background: #faf3e0;
+  color: #3e2c1c;
   font-size: 1rem;
 }
 
 button {
   padding: 12px 16px;
   border: none;
-  border-radius: 8px;
-  background: #2563eb;
-  color: white;
-  font-weight: 600;
+  border-radius: 6px;
+  background: #6b4423;
+  color: #f8f1e1;
+  font-weight: bold;
   cursor: pointer;
-  transition: background 0.2s ease;
+  transition: 0.2s;
 }
 
 button:hover {
-  background: #1d4ed8;
+  background: #4a2f16;
 }
 
 #mensagem-erro {
-  background: #fee2e2;
-  border: 1px solid #fca5a5;
-  color: #991b1b;
-  border-radius: 8px;
+  background: #f4d4d4;
+  border: 2px solid #a94442;
+  color: #7a1f1f;
+  border-radius: 6px;
   padding: 12px 14px;
   margin-bottom: 18px;
 }
@@ -71,28 +77,26 @@ button:hover {
 }
 
 .livro-card {
-  background: #ffffff;
-  border: 1px solid #dbe3ea;
-  border-left: 6px solid #64748b;
-  border-radius: 12px;
+  background: #f8f1e1;
+  border: 2px solid #b08b57;
+  border-left: 8px solid #8b6b3f;
+  border-radius: 10px;
   padding: 16px;
-  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
 }
 
 .livro-card.disponivel {
-  border-left-color: #16a34a;
-  background: #f0fdf4;
+  background: #efe7d1;
+  border-left-color: #556b2f;
 }
 
 .livro-card.indisponivel {
-  border-left-color: #dc2626;
-  background: #fff1f2;
-  opacity: 0.9;
+  background: #e8d7c0;
+  border-left-color: #8b0000;
 }
 
 .livro-card h3 {
   margin: 0 0 8px;
-  font-size: 1.2rem;
+  color: #5a3e1b;
 }
 
 .livro-card p {
@@ -102,20 +106,20 @@ button:hover {
 .status-badge {
   display: inline-block;
   padding: 6px 10px;
-  border-radius: 999px;
+  border-radius: 20px;
   font-size: 0.8rem;
-  font-weight: 700;
+  font-weight: bold;
   margin-bottom: 10px;
 }
 
 .status-badge.disponivel {
-  background: #dcfce7;
-  color: #166534;
+  background: #c8d5b9;
+  color: #2f4f2f;
 }
 
 .status-badge.indisponivel {
-  background: #fee2e2;
-  color: #991b1b;
+  background: #d8b4b4;
+  color: #6b0000;
 }
 
 .acao-botoes {
@@ -126,11 +130,11 @@ button:hover {
 }
 
 .acao-botoes button:last-child {
-  background: #dc2626;
+  background: #8b0000;
 }
 
 .acao-botoes button:last-child:hover {
-  background: #b91c1c;
+  background: #660000;
 }
 
 .oculto {

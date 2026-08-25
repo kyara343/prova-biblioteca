@@ -23,8 +23,16 @@ async function carregarLivros() {
 
 function mostrarErro(msg) {
   mensagemErro.textContent = msg;
-  mensagemErro.classList.remove('oculto');
+  mensagemErro.classList.remove("oculto");
+  mensagemErro.style.color = "#991b1b";
 }
+
+function mostrarSucesso(msg) {
+  mensagemErro.textContent = msg;
+  mensagemErro.classList.remove("oculto");
+  mensagemErro.style.color = "#166534";
+}
+
 
 
 function renderizarLivros(livros) {
@@ -80,39 +88,55 @@ form.addEventListener('submit', async (event) => {
     mostrarErro("Erro ao cadastrar livro");
     return;
   }
+  mostrarSucesso("Livro cadastrado com sucesso!");
   form.reset();
   carregarLivros();
 });
 
-// ----- TAREFA 3: remover um livro (DELETE) -----
+
 async function removerLivro(id) {
-  const response = await fetch (`/livros/${id}`, {
-    method: 'DELETE'
-  });
-  if (!response.ok) {
-    8
-    mostrarErro('Erro ao remover livro');
-    9
-    return;
+  try {
+    const response = await fetch(`/livros/${id}`, {
+      method: 'DELETE'
+    });
+
+    if (!response.ok) {
+      mostrarErro('Erro ao remover livro');
+      return;
+    }
 
     carregarLivros();
-    } catch (error) {
+  } catch (error) {
     mostrarErro(error.message);
-    }
- 
-  // TAREFA: fazer fetch DELETE para a rota DELETE
-  // TAREFA: tratar erro com a função mostrarErro em caso de falha
-  // TAREFA: se der certo, chamar carregarLivros() para atualizar a lista
+  }
+
+
 }
 
-// ----- TAREFA 4: emprestar / devolver um livro (PUT) -----
+
 async function alternarStatus(livro) {
-  // TAREFA: descobrir o novo valor de "disponivel" (inverter o atual: 1 vira 0, 0 vira 1)
-  // TAREFA: fazer fetch PUT para a rota PUT enviando
-  //       { disponivel: novoValor } no body, com headers corretos
-  //       OBS: A rota PUT precisa ser criada no back-end
-  // TAREFA: tratar erro com a função mostrarErro
-  // TAREFA: se der certo, chamar carregarLivros() para atualizar a lista
+  try {
+    const novoValor = livro.disponivel === 1 ? 0 : 1;
+
+    const response = await fetch(`/livros/${livro.id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        disponivel: novoValor
+      })
+    });
+
+    if (!response.ok) {
+      mostrarErro('Erro ao atualizar status do livro');
+      return;
+    }
+
+    carregarLivros();
+  } catch (error) {
+    mostrarErro(error.message);
+  }
 }
 
 carregarLivros();
